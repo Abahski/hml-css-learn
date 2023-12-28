@@ -1,46 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<title>Portofolio Project</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html>
+
 <head>
-    <div style="margin: auto; padding: 20px; text-align: justify; width: 500px;">
-        <h1>
-            Selamat datang dan salam kenal!
-        </h1>
-        <p1>
-            Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan Web Developer khususnya dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer. 
-        </p1>
-    </div>
-
-    <div style="margin: 5px auto; text-align: center; width: 500px;">
-        <a href="assets\file\CV_Reza Liswara.pdf" target="_blank" style="text-decoration: none; color: black;">
-            <i class="fa fa-file" style="color: black; font-size: 24px;"></i> Curicullum Vitae
-        </a>    
-    </div>
-
-    <div style="margin: 20px auto; text-align: center; width: 200px; height: 260px; box-shadow: 0px 0px 5px black; border-radius: 5px;"> 
-        <img src="assets\img\Foto Reza.jpg" style=" object-fit: cover; border-radius: 5px 5px 0px 0px;">
-        <h2 style="margin-bottom: 0; margin-top: 0;">Reza Liswara</h2>
-        <p style="margin-top: 0;">Programmer Wannabe</p>
-    </div>
-
-    <div style="margin: 20px auto; padding: 1px; text-align: center; width: 90px; height: auto; background-color: black; border-radius: 10px;">
-        <p style="color: white;">
-            Contact Me
-        </p>
-    </div>
-
-    <div style="margin: 5px auto; text-align: center; width: 500px;">
-        <a href="https://www.instagram.com/rezaliz_?igsh=MW4xeXg1NXdkazljYQ==" target="_blank">
-            <i class="fa fa-instagram" style="color :black; font-size: 36px; margin-right: 10px;"></i>
-        </a>
-        <a href="https://github.com/Abahski" target="_blank">
-            <i class="fa fa-github" style="color :black; font-size: 36px; margin-right: 10px;"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/reza-liswara" target="_blank">
-            <i class="fa fa-linkedin-square" style="color :black; font-size: 36px;"></i>
-        </a>    
-    </div>
-    
+    <title>Portofolio Project</title>
+    <link rel="stylesheet" href="assets\css\background.css" />
+    <link rel="stylesheet" href="assets\css\contact.css" />
+    <link rel="stylesheet" href="assets\css\home.css" />
+    <link rel="stylesheet" href="assets\css\index.css" />
+    <link rel="stylesheet" href="assets\css\icon.css" />
+    <link rel="stylesheet" href="assets\css\nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-ul">
+            <div class="navbar-left">
+                <li>
+                    <img src="assets\img\dumbways.png" class="navbar-logo">
+                </li>
+                <li>
+                    <a href="index.html" class="navbar-link" style="font-weight: bold;">Home</a>
+                </li>
+                <li>
+                    <a href ="#" class="navbar-link">My Project</a>
+                </li>
+            </div>
+            <div class="navbar-right">
+                <li>
+                    <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
+                </li>
+            </div>
+        </ul>
+    </nav>  
+
+    <div class="card">
+        <div class="text-side">
+            <div class="text-content">
+                <h2> Selamat datang dan salam kenal!</h2>
+                <p style="text-align: justify;">
+                  Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan menjadi Web Developer dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer. 
+                </p>
+                
+                <div style="display: flex;">
+                    <div style="width: 100px; height: 30px;">
+                        <a href="https://drive.google.com/file/d/1kwx53Tce7dOa4_HpVpYtK1jjDtCGc8U9/view?usp=sharing" target="_blank">
+                            <i class="fa fa-file"> My CV</i>
+                        </a>    
+                    </div>
+                    <div class="contact">
+                        <p class="contact text">
+                            contact
+                        </p>
+                    </div>
+     
+                </div>
+
+                <div style="margin: 20px auto; ">
+                    <a href="https://www.instagram.com/rezaliz_?igsh=MW4xeXg1NXdkazljYQ==" target="_blank">
+                        <i class="fa fa-instagram icon"></i>
+                    </a>
+                    <a href="https://github.com/Abahski" target="_blank">
+                        <i class="fa fa-github icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/reza-liswara" target="_blank">
+                        <i class="fa fa-linkedin icon"></i>
+                    </a>    
+                </div>
+
+            </div>
+        </div>
+            
+        <div class="image-side">
+            <div class="card-image"> 
+                <img src="assets\img\Foto Reza.jpg">
+                <h2 style="margin-bottom: 0; margin-top: 0;">Reza Liswara</h2>
+                <p style="margin-top: 0;">Programmer Wannabe</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+    
+
+    
+    
+
 </html>
