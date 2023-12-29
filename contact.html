@@ -33,25 +33,26 @@
     <div style="display: flex; width: 100%; justify-content: center; margin-top: 20px; ">
         <div style="display: flex; flex-direction: column; width: 300px; justify-content: center;">
             <h2 style="font-weight: bold; text-align: center; padding-top: 60px;">GET IN TOUCH</h2>
-            <label class="label-name" for="name">Name</label>
-            <input class="input-style" id="name"/>
+            <label class="label-name" for="nama">Name</label>
+            <input class="input-style" id="nama"/>
             <label class="label-name" for="email">Email</label>
             <input class="input-style" id="email" />
             <label class="label-name" for="nomor">Phone Number</label>
             <input class="input-style" id="nomor"/>
             <label class="label-name">Subject</label>
-            <select class="input-style">
+            <select class="input-style" id="subject">
                 <option></option>
                 <option>Frontend Developer</option>
                 <option>Backend Developer</option>
                 <option>Fullstack Developer</option>
             </select>
             <label class="label-name" for="message">Your Message</label>
-            <textarea class="input-message" id="message">
-            </textarea>
-            <button class="btn-submit">submit</button>
+            <textarea class="input-message" id="message"></textarea>
+            <button class="btn-submit" onclick="submitData()">submit</button>
         </div>
     </div>
+
+    <script src="assets/js/contact.js"></script>
 </body>
 
 </html>
