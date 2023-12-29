@@ -32,11 +32,10 @@ console.log(message)
 console.log(subject)
 
 
-let a = document.createElement('a')
+const mailtoLink = `mailto:${email}?subject=${subject}&body=${message}, saya ${nama}, kontak saya di ${nomor}`;
 
-a.href = `mailto:${email}?subject=${subject}&body=${message}, saya ${nama}, kontak saya di ${nomor}`
-
-a.click()
+  // Open the email link in a new tab
+  window.open(mailtoLink, '_blank');
 }
 
 
