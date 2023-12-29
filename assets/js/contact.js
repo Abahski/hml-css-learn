@@ -34,7 +34,6 @@ console.log(subject)
 
 const mailtoLink = `mailto:${email}?subject=${subject}&body=${message}, saya ${nama}, kontak saya di ${nomor}`;
 
-  // Open the email link in a new tab
   window.open(mailtoLink, '_blank');
 }
 
