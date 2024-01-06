@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>My Project</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/myproject.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+	<nav class="navbar">
+        <ul class="navbar-ul">
+            <div class="navbar-left">
+                <li>
+                    <img src="assets\img\dumbways.png" class="navbar-logo">
+                </li>
+                <li>
+                    <a href="index.html" class="navbar-link">Home</a>
+                </li>
+                <li>
+                    <a href ="my project.html" class="navbar-link-active">My Project</a>
+                </li>
+            </div>
+            <div class="navbar-right">
+                <li>
+                    <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
+                </li>
+            </div>
+        </ul>
+    </nav>  
+
+    
+        <div class="project-form">
+            <div class="form-container">
+                <form onsubmit="addProject(event)">
+                    <h1>Add My Project</h1>
+                    <div>
+                        <label for="input-project-name" class="font-label">Project Name</label>
+                        <input id="input-project-name" />
+                    </div>
+
+                    <div class="input-date" >
+                        <div class="input-group">
+                            <label for="input-start-date" class="font-label">Start Date</label>
+                            <input type="date" id="input-start-date" class="input-date-size" />
+                        </div>
+                        <div class="input-group">
+                            <label for="input-end-date" class="font-label">End Date</label>
+                            <input type="date" id="input-end-date" class="input-date-size" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="input-project-description" class="font-label">Description</label>
+                        <textarea id="input-project-description"></textarea>
+                    </div>
+                    
+                <div>
+                    <label for="input-checkboxes" class="font-label" style="margin-bottom: 10px;">Technologies</label>
+                    <div class="checkbox-container">
+                        <div>
+                            <input type="checkbox" id="html" value="html" style="width: 50px;   " />
+                            <label for="html">HTML</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="css" value="css" style="width: 50px"/>
+                            <label for="css">CSS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="nodejs" value="nodejs" style="width: 50px"/>
+                            <label for="nodejs">NodeJs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="python" value="python" style="width: 50px"/>
+                            <label for="python">Python</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="font-label">Upload Image</label>
+                    <div class="input-project-image">
+                    <label for="input-image" style="height: 24px;">
+                        <div>
+                            <p>choose</p>
+                        </div>
+                        <img src="assets\img\file.png" alt="file" />
+                    </label>
+                    <input type="file" id="input-image" hidden />
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <button>submit</button>
+                </div>
+            </form>
+            </div>
+        </div>
+
+        <div id="contents" class="project-list">
+            <h1 class="project-title">Project List</h1>
+            <div class="project-list-item">
+                <div class="project-image">
+                    <img src="assets/img/Foto Reza.jpg" alt="" />
+                </div>
+                <div class="project-content">
+                    <div class="btn-group">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-post">Delete</button>
+                    </div>
+                    <h1>
+                        <a href="project page.html" target="_blank">Dumbways Mobile App Creator: Reza Liswara</a>
+                    </h1>
+                    <div class="detail-project-content">
+                        1 Januari 20213 22:30 WIB | Reza Liswara
+                    </div>
+                    <div class="detail-project-content">
+                        Durasi: 5 Bulan
+                    </div>
+                    <p>
+                        KLorem ipsum,
+                        dolor sit amet consectetur adipisicing elit. Quam, molestiae
+                        numquam! Deleniti maiores expedita eaque deserunt quaerat! Dicta,
+                        eligendi debitis? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, molestiae
+                        numquam! Deleniti maiores expedita eaque deserunt quaerat! Dicta,
+                        eligendi debitis?
+                    </p>
+                </div>
+            </div>       
+        </div> 
+        <script src="assets/js/myproject.js"></script>
+</body>
+</html>

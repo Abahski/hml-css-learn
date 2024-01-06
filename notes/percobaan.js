@@ -13,3 +13,6 @@ const nilai = '80'
 if (nilai >= 79){
     console.log("a")
 }
+
+
+${calculateDateDifference(projects[index].start_date, projects[index].end_date)}|

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Input Example</title>
+    <style>
+        /* Apply styling for flexbox layout */
+        .input-date {
+            display: flex;
+            flex-direction: row;
+            margin-left: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px; /* Optional: Add some spacing between date input groups */
+        }
+
+        .input-group label {
+            margin-bottom: 5px; /* Optional: Add some spacing between label and input */
+            width: 80px; /* Set the width of the label as needed */
+        }
+
+        .input-group input {
+            margin-top: 5px; /* Optional: Add some spacing between inputs */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="input-date">
+        <div class="input-group">
+            <label for="input-start-date">Start Date</label>
+            <input type="date" id="input-start-date" />
+        </div>
+        <div class="input-group">
+            <label for="input-end-date">End Date</label>
+            <input type="date" id="input-end-date" />
+        </div>
+    </div>
+
+</body>
+</html>

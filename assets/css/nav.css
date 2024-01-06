@@ -32,6 +32,12 @@
     color: black
 }
 
+.navbar-link-active {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
 .active {
     color: black;
 }

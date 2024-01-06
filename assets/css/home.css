@@ -8,7 +8,8 @@ body {
 
 .card {
     display: flex;
-    width: 1000px;
+    width: 900px;
+    height: 550px;
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -39,13 +40,13 @@ body {
   .text-side {
     flex: 1;
     padding: 20px;
-    margin: 30px 10px 30px 30px;
+    margin: 30px 5px 30px 30px;
   }
 
   .image-side {
     flex: 1;
     overflow: hidden;
-    margin: 30px 30px 30px 10px;
+    margin: 30px 30px 30px 5px;
   }
 
   .text-content {
@@ -73,3 +74,5 @@ body {
     text-align: center; 
     margin: 0;
   }
+
+  .cv
