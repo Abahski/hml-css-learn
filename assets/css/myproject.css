@@ -291,20 +291,30 @@ form button{
   	width: calc(100% - 16px);
     }
 
+
   .checkbox-container {
         grid-template-columns: 1fr;
     }
 
-  .input-date-size {
-  	width: 60%;
-  }
+  .input-date {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-group {
+        margin-right: 0;
+    }
+
+    .input-date-size {
+    	width: calc(100% - 16px);
+    }
 
   form .input-project-image {
         width: 100%;
     }
 
   form button {
-        width: 100%; /* Make the button full width */
+        width: 100%;
     }
 
 	.project-list-item {
