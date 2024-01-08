@@ -274,6 +274,39 @@ form button{
 		width: 100%;
 	}
 
+
+	.project-form {
+		 flex-direction: column;
+     align-items: center;
+    }
+
+	.form-container {
+		width: 100%;
+		max-width: 400px;
+	}
+
+	form input,
+  form textarea,
+  form select {
+  	width: calc(100% - 16px);
+    }
+
+  .checkbox-container {
+        grid-template-columns: 1fr;
+    }
+
+  .input-date-size {
+  	width: 60%;
+  }
+
+  form .input-project-image {
+        width: 100%;
+    }
+
+  form button {
+        width: 100%; /* Make the button full width */
+    }
+
 	.project-list-item {
 		flex-direction: column;
 	}
