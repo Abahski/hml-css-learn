@@ -1,9 +1,9 @@
 const projects = [{
-    title: "Abah 1",
-    project_description: "LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem",
+    title: "Testing",
+    project_description: "halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo vhalo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo ",
     start_date:"2024-01-17" ,
     end_date:"2024-01-30" ,
-    image: "assets/img/background.jpg",
+    image: "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png/revision/latest/scale-to-width-down/1200?cb=20210223094656",
     nodejs: true,
     css: true,
     html: true,
@@ -122,11 +122,11 @@ function renderProject() {
                 <div class="tech-icon-container">
                     ${renderTechIcons}
                 </div>
-                <p>
+                <p style="width: 100%">
                   ${projects[index].project_description}
                 </p>
                 <div> 
-                    <p>${getDistanceTime(projects[index].createdAt)}</p>
+                    <p style="width: 100%">${getDistanceTime(projects[index].createdAt)}</p>
                 </div>
             </div>
         </div>
@@ -190,7 +190,7 @@ function calculateDateDifference(start, end) {
         return "Durasi: " + daysDifference / 30 + " Bulan"
     } else if (daysDifference >= 30 && daysDifference % 30 != 0) {
         return "Durasi: " + Math.floor(daysDifference / 30) + " Bulan " + (daysDifference % 30) + " Hari" 
-    }
+    } 
 }
 
 renderProject()

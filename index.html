@@ -3,13 +3,12 @@
 
 <head>
     <title>Portofolio Project</title>
-    <link rel="stylesheet" href="assets\css\background.css" />
-    <link rel="stylesheet" href="assets\css\contact.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets\css\home.css" />
     <link rel="stylesheet" href="assets\css\index.css" />
     <link rel="stylesheet" href="assets\css\icon.css" />
     <link rel="stylesheet" href="assets\css\nav.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body>
@@ -20,7 +19,7 @@
                     <img src="assets\img\dumbways.png" class="navbar-logo">
                 </li>
                 <li>
-                    <a href="index.html" class="navbar-link-active">Home</a>
+                    <a href="index.html" class="navbar-link active">Home</a>
                 </li>
                 <li>
                     <a href ="my project.html" class="navbar-link">My Project</a>
@@ -30,22 +29,32 @@
                 <li>
                     <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
                 </li>
+                <i class="fa-solid fa-bars fa-2x" style="cursor: pointer;" id="hamburger-button" onclick="openHamburger()"></i>
             </div>
         </ul>
-    </nav>  
+        <div id="hamburger-navbar-container" class="hamburger-navbar-container hidden">
+            <a class="hamburger-navbar-link hamburger-active" href="index.html">Home</a>
+            <a class="hamburger-navbar-link" href="my project.html">My Project</a>
+            <a class="hamburger-navbar-link" href="contact.html">Contact Me</a>
+        </div>
+    </nav>
 
-    <div class="card">
-        <div class="text-side">
-            <div class="text-content">
-                <h2> Selamat datang dan salam kenal!</h2>
-                <p style="text-align: justify;">
-                  Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan menjadi Web Developer dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer. 
-                </p>
-                
-                <div style="display: flex;">
-                    <div style="width: 160px; height: 30px;">
+    <section class="container">
+            <div class="left">
+                <img src="assets\img\Foto Reza.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+                <h2>Reza Liswara</h2>
+                <p>Programmer Wannabe</p>
+            </div>
+
+            <div class="right">
+                <h2> Selamat datang dan salam kenal!</h2>                  
+
+                <p style="text-align: justify;"> Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan menjadi Web Developer dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer. </p>
+
+                <div style="display: flex; margin-top: 30px;">
+                    <div style="width: 70px; height: 30px;">
                         <a href="https://drive.google.com/file/d/1kwx53Tce7dOa4_HpVpYtK1jjDtCGc8U9/view?usp=sharing" target="_blank">
-                            <i class="fa fa-file"> Curriculum Vitae</i>
+                            <i class="fa-regular fa-file"> CV</i>
                         </a>    
                     </div>
                     <div class="contact">
@@ -53,33 +62,22 @@
                             contact
                         </p>
                     </div>
-     
                 </div>
 
                 <div style="margin: 20px auto; ">
                     <a href="https://www.instagram.com/rezaliz_?igsh=MW4xeXg1NXdkazljYQ==" target="_blank">
-                        <i class="fa fa-instagram icon"></i>
+                        <i class="fa-brands fa-instagram icon"></i>
                     </a>
                     <a href="https://github.com/Abahski" target="_blank">
-                        <i class="fa fa-github icon"></i>
+                        <i class="fa-brands fa-github icon"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/reza-liswara" target="_blank">
-                        <i class="fa fa-linkedin icon"></i>
+                        <i class="fa-brands fa-linkedin icon"></i>
                     </a>    
                 </div>
-
             </div>
-        </div>
-            
-        <div class="image-side">
-            <div class="card-image"> 
-                <img src="assets\img\Foto Reza.jpg">
-                <h2 style="margin-bottom: 0; margin-top: 0;">Reza Liswara</h2>
-                <p style="margin-top: 0;">Programmer Wannabe</p>
-            </div>
-        </div>
-    </div>
-
+    </section>
+    <script src="assets/js/nav.js"></script>
 </body>
     
 

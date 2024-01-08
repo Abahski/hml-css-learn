@@ -1,22 +1,22 @@
-.fa.fa-github.icon{
+.fa-brands.fa-github.icon{
     color :black; 
     font-size: 36px; 
     margin-right: 10px;
   }
 
-  .fa.fa-instagram.icon{
+  .fa-brands.fa-instagram.icon{
     color :black; 
     font-size: 36px; 
     margin-right: 10px;
   }
 
-  .fa.fa-linkedin.icon{
+  .fa-brands.fa-linkedin.icon{
     color :black; 
     font-size: 36px; 
     margin-right: 10px;
   }
 
-  .fa.fa-file{
+  .fa-regular.fa-file{
     color: black; 
     font-size: 18px;
   }

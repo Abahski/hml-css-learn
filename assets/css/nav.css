@@ -1,11 +1,10 @@
 .navbar {
     background-color: #f4f3f3;
-    padding: 2.5px;
+    padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 1;
-    width: 100%;
+    right: 0;
 }
 
 .navbar-ul {
@@ -16,13 +15,13 @@
 
 .navbar-left {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
 }
 
 .navbar-right {
     display: flex;
-    margin-right: 40px;
+    margin-right: 20px;
     align-items: center;
 }
 
@@ -32,14 +31,8 @@
     color: black
 }
 
-.navbar-link-active {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
 .active {
-    color: black;
+    font-weight: bolder;
 }
 
 .navbar-logo {
@@ -56,4 +49,50 @@
     border-radius: 5px;
     margin-top: 20px;
     text-decoration: none;
+}
+
+.hamburger-active {
+    background-color: black;
+}
+
+.hamburger-navbar-container {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+}
+
+.hamburger-navbar-link {
+    display: none;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid white;
+}
+
+#hamburger-button {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 576px) {
+    .navbar-link {
+        display: none;
+    }
+
+    .navbar-contact-btn {
+        display: none;
+    }
+
+    .hamburger-navbar-link {
+        display: block;
+    }
+
+    #hamburger-button {
+        display: block;
+    }
 }

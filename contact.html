@@ -3,10 +3,11 @@
 
 <head>
     <title>Contact Me</title>
-    <link rel="stylesheet" href="assets\css\background.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets\css\contact.css" />
     <link rel="stylesheet" href="assets\css\index.css" />
     <link rel="stylesheet" href="assets\css\nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
     <nav class="navbar">
@@ -26,13 +27,20 @@
                 <li>
                     <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
                 </li>
+                <i class="fa-solid fa-bars fa-2x" style="cursor: pointer;" id="hamburger-button"
+            onclick="openHamburger()"></i>
             </div>
         </ul>
+        <div id="hamburger-navbar-container" class="hamburger-navbar-container hidden">
+            <a class="hamburger-navbar-link" href="index.html">Home</a>
+            <a class="hamburger-navbar-link" href="my project.html">My Project</a>
+            <a class="hamburger-navbar-link hamburger-active" href="contact.html">Contact Me</a>
+        </div>
     </nav>
 
     <div style="display: flex; width: 100%; justify-content: center; margin-top: 20px; ">
         <div style="display: flex; flex-direction: column; width: 300px; justify-content: center;">
-            <h2 style="font-weight: bold; text-align: center; padding-top: 60px;">GET IN TOUCH</h2>
+            <h2 style="text-align: center;">GET IN TOUCH</h2>
             <label class="label-name" for="nama">Name</label>
             <input class="input-style" id="nama"/>
             <label class="label-name" for="email">Email</label>
@@ -53,6 +61,7 @@
     </div>
 
     <script src="assets/js/contact.js"></script>
+    <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

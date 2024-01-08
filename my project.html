@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>My Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/myproject.css" />
@@ -19,22 +20,28 @@
                     <a href="index.html" class="navbar-link">Home</a>
                 </li>
                 <li>
-                    <a href ="my project.html" class="navbar-link-active">My Project</a>
+                    <a href ="my project.html" class="navbar-link active">My Project</a>
                 </li>
             </div>
             <div class="navbar-right">
                 <li>
                     <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
                 </li>
+                <i class="fa-solid fa-bars fa-2x" style="cursor: pointer;" id="hamburger-button" onclick="openHamburger()"></i>
             </div>
         </ul>
+        <div id="hamburger-navbar-container" class="hamburger-navbar-container hidden">
+            <a class="hamburger-navbar-link" href="index.html">Home</a>
+            <a class="hamburger-navbar-link  hamburger-active" href="my project.html">My Project</a>
+            <a class="hamburger-navbar-link" href="contact.html">Contact Me</a>
+        </div>
     </nav>  
 
     
         <div class="project-form">
             <div class="form-container">
                 <form onsubmit="addProject(event)">
-                    <h1>Add My Project</h1>
+                    <h2>Add My Project</h2>
                     <div>
                         <label for="input-project-name" class="font-label">Project Name</label>
                         <input id="input-project-name" />
@@ -82,8 +89,8 @@
                     <label class="font-label">Upload Image</label>
                     <div class="input-project-image">
                     <label for="input-image" style="height: 24px;">
-                        <div>
-                            <p>choose</p>
+                        <div class="contact">
+                            <p class="contact text">choose</p>
                         </div>
                         <img src="assets\img\file.png" alt="file" />
                     </label>
@@ -129,5 +136,6 @@
             </div>       
         </div> 
         <script src="assets/js/myproject.js"></script>
+        <script src="assets/js/nav.js"></script>
 </body>
 </html>

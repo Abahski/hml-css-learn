@@ -1,16 +1,14 @@
 /*Project Form*/
 .project-form {
-	padding: 50px 0;
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
 }
 
 .form-container{
 	width: 500px;
 }
 
-.form-container h1 {
+.form-container h2 {
 	text-align: center;
 }
 
@@ -87,11 +85,28 @@ form textarea {
     flex-direction: column;
 }
 
+.contact{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 80px; 
+    height: 42px; 
+    background-color: #e4e4e4; 
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+  }
+
+.contact.text{
+    color: #b2abab; 
+    text-align: center; 
+    margin: 0;
+  }
+
 form .input-project-image {
 	width: 100%;
 	font-size: 20px;
 	font-weight: 400;
-	padding: 8px;
+	padding: 8px 0px;
 	margin-top: 5px;
 	margin-bottom: 20px;
 	background: white;
@@ -127,6 +142,7 @@ form button{
 .project-title {
 	text-align: center;
 }
+
 .project-list {
 	background-color: white;
 	margin-top: 80px;
@@ -147,7 +163,7 @@ form button{
 }
 
 .project-image {
-	flex: 1;
+	flex: 1
 }
 
 .project-image img {
@@ -162,7 +178,7 @@ form button{
 }
 
 .project-content p {
-  width: 500px;
+  width: 100%;
   word-wrap: break-word;
 }
 
@@ -251,4 +267,14 @@ form button{
 
 .tech-icon {
 	font-size: 24px;
+}
+
+@media only screen and (max-width: 576px) {
+	.project-image {
+		width: 100%;
+	}
+
+	.project-list-item {
+		flex-direction: column;
+	}
 }
