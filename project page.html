@@ -20,15 +20,25 @@
                     <a href="index.html" class="navbar-link">Home</a>
                 </li>
                 <li>
-                    <a href ="my project.html" class="navbar-link-active">My Project</a>
+                    <a href ="my project.html" class="navbar-link active">My Project</a>
+                </li>
+                <li>
+                    <a href="testimoni.html" class="navbar-link"> Testimonial </a>
                 </li>
             </div>
             <div class="navbar-right">
                 <li>
                     <a href="contact.html" class="navbar-contact-btn">Contact Me</a>
+                    <i class="fa-solid fa-bars fa-2x" style="cursor: pointer;" id="hamburger-button" onclick="openHamburger()"></i>
                 </li>
             </div>
         </ul>
+        <div id="hamburger-navbar-container" class="hamburger-navbar-container hidden">
+            <a class="hamburger-navbar-link" href="index.html">Home</a>
+            <a class="hamburger-navbar-link  hamburger-active" href="my project.html">My Project</a>
+            <a class="hamburger-navbar-link" href="testimoni.html">Testimonial</a>
+            <a class="hamburger-navbar-link" href="contact.html">Contact Me</a>
+        </div>
     </nav> 
 
     <div class="page-detail">
@@ -81,7 +91,7 @@
     		Nam interdum luctus lacinia. Nullam blandit orci eu eros dapibus, a dictum metus laoreet. Sed eros arcu, sodales sit amet urna in, placerat accumsan purus. Nam commodo orci quis malesuada blandit. Curabitur vitae lacinia ipsum. Ut enim odio, eleifend ultrices maximus non, pulvinar quis ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc facilisis massa eu lectus eleifend aliquet. Integer convallis facilisis viverra. <br>
     	</p>
     </article>
-
+    <script src="assets/js/nav.js"></script>
 
 </body>
 </html>

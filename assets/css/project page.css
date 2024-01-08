@@ -1,9 +1,7 @@
 /*Detail Project*/
 .page-detail {
-	padding: 50px;
 	display: flex;
 	justify-content: center;
-	margin-top: 50px;
 }
 
 section {
