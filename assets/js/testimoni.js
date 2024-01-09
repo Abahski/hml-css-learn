@@ -1,74 +1,59 @@
-class Testimonial {
-    #author = ""
-    #image = ""
-    #content = ""
-
-    constructor(author, image, content) {
-        this.#author = author
-        this.#image = image
-        this.#content = content
+const testimonials = [
+    {
+        author: "Reza Liswara",
+        content: "Slow respon euy",
+        image: "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        rating: 1
+    },
+    {
+        author: "Reza",
+        content: "Fast Respon tapi hasilnya jelek banget",
+        image: "https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&w=600",
+        rating: 2,
+    },
+    {
+        author: "Liswara",
+        content: "Ga bagus dan ga jelek sih hasilnya, oke untuk yang mau coba",
+        image: "https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=600",
+        rating: 3,
+    },
+    {
+        author: "RL",
+        content: "Meski agak slow respon hasilnya memuaskan bangett",
+        image: "https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=600",
+        rating: 4
+    },
+    {
+        author: "Orang baru",
+        content: "Recommend banget buat siapapun heheheh",
+        image: "https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&w=600",
+        rating: 5
     }
+]
 
-    set author(val) {
-        this.#author = val
-    }
-
-    set image(val) {
-        this.#image = val
-    }
-
-    set content(val) {
-        this.#content = val
-    }
-
-    get author() {
-        return this.#author
-    }
-
-    get image() {
-        return this.#image
-    }
-
-    get content() {
-        return this.#content
-    }
-
-    html() {
-        throw new Error('You must choose as author or company')
-    }
-}
-
-class AuthorTestimonial extends Testimonial {
-
-    html() {
+function allTestimonial() {
+    const testimonialHTML = testimonials.map((value) => {
         return `<div class="testimonial">
-            <img src="${this.image}" class="profile-testimonial" />
-            <p class="quote">"${this.content}"</p>
-            <p class="author">- ${this.author}</p>
-        </div>`
-    }
+
+        <img src="${value.image}" class="profile-testimonial" />
+                <p class="quote">"${value.content}"</p>
+                <p class="author">- ${value.author}</p>
+            </div>`
+    })
+    
+    document.getElementById("testimonials").innerHTML = testimonialHTML.join(" ")
 }
 
-class CompanyTestimonial extends Testimonial {
-
-    html() {
-        return `<div class="testimonial">
-            <img src="${this.image}" class="profile-testimonial" />
-            <p class="quote">"${this.content}"</p>
-            <p class="author">- ${this.author} Company</p>
-        </div>`
-    }
+function filterTestimonial(rating) {
+    const filteredTestimonial = testimonials.filter((value) => value.rating === rating)
+    const filteredTestimonialHTML = filteredTestimonial.map((value) => {
+        return `<div class="testimonial"> 
+        <img src="${value.image}" class="profile-testimonial" />
+                <p class="quote">"${value.content}"</p>
+                <p class="author">- ${value.author}</p>
+            </div>`
+    })
+    document.getElementById("testimonials").innerHTML = filteredTestimonialHTML.join(" ")
 }
 
-const testimonial1 = new AuthorTestimonial("Abah Abahski", "assets/img/background.jpg", "Joki di tempat sini sangat worth it sekali guyssss")
-const testimonial2 = new AuthorTestimonial("Liswara Reza", "assets/img/dumbways.png", "Joki paling murah ya ada di sini sajaa gaess!")
-const testimonial3 = new CompanyTestimonial("RL", "assets/img/Foto Reza.jpg", "Okelah bang pengerjaan sangat cepat sekalii! ^^")
-
-const testimonials = [testimonial1, testimonial2, testimonial3]
-let testimonialsHTML = ""
-
-for (let index = 0; index < testimonials.length; index++) {
-    testimonialsHTML += testimonials[index].html()
-}
-
-document.getElementById("testimonials").innerHTML = testimonialsHTML
+allTestimonial()
