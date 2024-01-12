@@ -27,27 +27,9 @@ function addProject(e) {
     let startDate = new Date(start_date).getTime()
     let endDate = new Date(end_date).getTime()
 
-    if (title === "" && start_date === "" && end_date === "" && project_description === "" && (!image || image.length === 0)) {
-        return alert("Anda belum mengisi apa-apa. Mohon mengisi formulir.");
-    }
-
-    if (title === "") {
-        return alert("Judul tidak boleh kosong.");
-    } else if (start_date === "" && end_date === "") {
-        return alert("Start Date dan End Date tidak boleh kosong.")
-    } else if (start_date === "") {
-        return alert("Start Date tidak boleh kosong.");
-    } else if (end_date === "") {
-        return alert("End Date tidak boleh kosong.");
-    } else if (startDate > endDate) {
+    if (startDate > endDate) {
         return alert("Start Date tidak boleh lebih lama dari End Date.")
-    } else if (project_description === "") {
-        return alert("Deskripsi tidak boleh kosong.");
-    } else if (!image || image.length === 0) {
-        return alert("Gambar tidak boleh kosong");
     }
-
-
 
     let tech = []
 
@@ -104,15 +86,12 @@ function renderProject() {
         }
 
 		html += `
-        <div class="project-list-item">
+        <div class="project-list-item position-relative">
         	<div class="project-image">
-        		<img src="${projects[index].image}" alt="" />
+        		<img src="${projects[index].image}" alt="" class="img-fluid" />
             </div>
             <div class="project-content">
-                    <div class="btn-group">
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-post">Delete</button>
-                    </div>
+                    
             	<h1>
                 	<a href="project page.html" target="_blank">${projects[index].title}</a>
             	</h1>
@@ -125,9 +104,13 @@ function renderProject() {
                 <p style="width: 100%">
                   ${projects[index].project_description}
                 </p>
-                <div> 
-                    <p style="width: 100%">${getDistanceTime(projects[index].createdAt)}</p>
+                <div class="btn-group position-absolute top-0 end-0 m-3">
+                        <button class="btn-edit me-2">Edit</button>
+                        <button class="btn-post">Delete</button>
                 </div>
+                <div> 
+                     <p style="width: 100%">${getDistanceTime(projects[index].createdAt)}</p>
+                </div>  
             </div>
         </div>
 		`

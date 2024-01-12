@@ -4,76 +4,64 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Testimonial</title>
-    <link rel="stylesheet" href="assets/css/nav.css" />
+    <!-- <link rel="stylesheet" href="assets/css/nav.css" /> -->
     <link rel="stylesheet" href="assets/css/testimoni.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul class="navbar-ul">
-            <div class="navbar-left">
-                <li>
-                    <img src="assets/img/dumbways.png" class="navbar-logo" />
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/dumbways.png" alt="Logo" class="navbar-logo" style="width:50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <li>
-                    <a href="index.html" class="navbar-link"> Home </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="my project.html">Add Project</a>
                 </li>
-                <li>
-                    <a href="my project.html" class="navbar-link"> My Project </a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="testimoni.html">Testimonial</a>
                 </li>
-                <li>
-                    <a href="testimoni.html" class="navbar-link active"> Testimonial </a>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-dark d-none d-lg-inline" href="contact.html">Contact Me</a>
+                    <a class="nav-link d-lg-none" href="contact.html">Contact Me</a>
                 </li>
-
-            </div>
-            <div class="navbar-right">
-                <li>
-                    <a href="contact.html" class="navbar-contact-btn"> Contact </a>
-                </li>
-                <i class="fa-solid fa-bars fa-2x" style="cursor: pointer;" id="hamburger-button"
-                    onclick="openHamburger()"></i>
-            </div>
-        </ul>
-        <div id="hamburger-navbar-container" class="hamburger-navbar-container hidden">
-            <a class="hamburger-navbar-link" href="index.html">Home</a>
-            <a class="hamburger-navbar-link" href="my project.html">My Project</a>
-            <a class="hamburger-navbar-link hamburger-active" href="testimoni.html">Testimonial</a>
-            <a class="hamburger-navbar-link" href="contact.html">Contact Me</a>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <div class="container">
-        <h1>Testimonials</h1>
-        <div class="container-rating">
-            <h2> Rating By Star</h2>
-            <div class="rating">
-                <button class="rating-btn" onclick="allTestimonial()">
-                    All
-                </button>
-                <button class="rating-btn" onclick="filterTestimonial(1)">
-                    1 <i class="fa-solid fa-star"></i>
-                </button>
-                <button class="rating-btn" onclick="filterTestimonial(2)">
-                    2 <i class="fa-solid fa-star"></i>
-                </button>
-                <button class="rating-btn" onclick="filterTestimonial(3)">
-                    3 <i class="fa-solid fa-star"></i>
-                </button>
-                <button class="rating-btn" onclick="filterTestimonial(4)">
-                    4 <i class="fa-solid fa-star"></i>
-                </button>
-                <button class="rating-btn" onclick="filterTestimonial(5)">
-                    5 <i class="fa-solid fa-star"></i>
-                </button>
-            </div>
-        </div>
-        <section class="testimonials" id="testimonials">
-
-        </section>
+    <h1 class="mt-4">Testimonials</h1>
+    <div class="container-rating mt-4">
+      <h2>Rating By Star</h2>
+      <div class="btn-group mt-4">
+        <button class="btn btn-dark" onclick="allTestimonial()">All</button>
+        <button class="btn btn-dark" onclick="filterTestimonial(1)">1 <i class="fas fa-star"></i></button>
+        <button class="btn btn-dark" onclick="filterTestimonial(2)">2 <i class="fas fa-star"></i></button>
+        <button class="btn btn-dark" onclick="filterTestimonial(3)">3 <i class="fas fa-star"></i></button>
+        <button class="btn btn-dark" onclick="filterTestimonial(4)">4 <i class="fas fa-star"></i></button>
+        <button class="btn btn-dark" onclick="filterTestimonial(5)">5 <i class="fas fa-star"></i></button>
+      </div>
     </div>
-    <script src="assets/js/nav.js"></script>
+    <section class="testimonials mt-4" id="testimonials">
+
+    </section>
+  </div>
+
     <script src="assets/js/ajax testimonial.js"></script>
 </body>
 

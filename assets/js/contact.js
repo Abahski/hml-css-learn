@@ -1,25 +1,39 @@
+function validateForm() {
+    var form = document.getElementById('contactForm');
+    var phoneInput = document.getElementById('phone_number');
+    var phoneError = document.getElementById('phoneError');
+    var emailInput = document.getElementById('email');
+    var emailError = document.getElementById('emailError');
+
+    if (form.checkValidity()) {
+        var phoneNumber = phoneInput.value;
+        if (!/^[0-9]+$/.test(phoneNumber)) {
+            phoneError.textContent = 'Phone number must only contain numeric characters.';
+            return false;
+        } else {
+            phoneError.textContent = '';
+        }
+
+        var email = emailInput.value;
+        if (!/\.(com|co\.id|net|org)$/.test(email)) {
+            emailError.textContent = 'Email address must end with a valid TLD (e.g., .com, .co.id, .net, .org)';
+            return false;
+        } else {
+            emailError.textContent = '';
+        }
+
+        submitData();
+    }
+    form.classList.add('was-validated');
+    return false;
+}
+
 function submitData() {
-    const nama = document.getElementById('nama').value;
+    const nama = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const nomor = document.getElementById('nomor').value;
+    const nomor = document.getElementById('phone_number').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-
-    if (nama === "" && email === "" && nomor === "" && subject === "" && message === "") {
-        return alert("Anda belum mengisi apa-apa. Mohon mengisi formulir.");
-    }
-
-    if (nama === "") {
-        return alert("Nama tidak boleh kosong.");
-    } else if (email === "") {
-        return alert("Email tidak boleh kosong.");
-    } else if (nomor === "") {
-        return alert("Nomor telepon tidak boleh kosong.");
-    } else if (subject === "") {
-        return alert("Silahkan pilih subjek yang ingin digunakan.");
-    } else if (message === "") {
-        return alert("Silahkan masukkan pesan Anda.");
-    }
 
     console.log(nama);
     console.log(email);

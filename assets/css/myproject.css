@@ -145,8 +145,7 @@ form button{
 
 .project-list {
 	background-color: white;
-	margin-top: 80px;
-	margin-bottom: 80px;
+	padding: 40px 0;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -160,6 +159,7 @@ form button{
   	border: 2px solid #dbdbdb;
   	border-radius: 8px;
   	display: flex;
+    justify-content: space-between;
 }
 
 .project-image {
@@ -187,16 +187,9 @@ form button{
   margin-bottom: 20px;
 }
 
-.btn-edit {
+.btn-edit, .btn-post {
   padding: 5px 10px;
-  border: 0;
-  border-radius: 4px;
-  background: #000000;
-  color: #fff;
-}
-
-.btn-post {
-  padding: 5px 10px;
+  width: auto;
   border: 0;
   border-radius: 4px;
   background: #000000;
