@@ -1,0 +1,66 @@
+/*Detail Project*/
+.page-detail {
+	display: flex;
+	justify-content: center;
+}
+
+section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 20px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+ }
+
+ #image-container {
+	flex: 1;
+	max-width: 60%;
+	margin-bottom: 20px;
+}
+
+#image-container img {
+    width: 95%;
+    height: auto;
+}
+
+#details-container {
+	flex: 1;
+	max-width: 40%;
+	margin-bottom: 20px;
+}
+
+article {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.article {
+	text-align: justify;
+}
+
+.tech-icon {
+	font-size: 24px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	width: 25px;
+	height: 25px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 250px;
+}
+
+.grid-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.grid-icon i {
+    margin-right: 10px;	
+}

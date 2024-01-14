@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px ;
+    margin: 0;
+}
+
+.container {
+  flex-wrap: wrap; 
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+    display: flex;
+    width: 1200px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    padding: 50px 0;
+  }
+
+  .card-image{
+    margin: 80px 50px auto auto; 
+    text-align: center; 
+    align-items: center; 
+    width: 250px; 
+    height: 350px; 
+    box-shadow: 0px 0px 5px black; 
+    border-radius: 5px;
+  }
+
+  .card img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .text-side {
+    margin-top: 70px;
+    flex: 50%;
+  }
+
+  .image-side {
+    flex: 50%;
+  }
+
+  .text-content {
+    margin-bottom: 20px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .contact{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100px; 
+    height: 30px; 
+    background-color: black; 
+    border-radius: 15px;
+  }
+
+  .contact.text{
+    color: white; 
+    text-align: center; 
+    margin: 0;
+  }
+
+@media only screen and (max-width: 576px) {
+  .card {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .text-side {
+    flex: 100%  }
+
+  .image-side {
+    flex: 100%;
+  }
+
+}

@@ -1,0 +1,12 @@
+Bootstrap = teknologi advance dari CSS, package komplit
+sudah ada package sendiri jadi tinggal plug and play
+
+Cara manggil:
+CDN Content Delivery Network = fontawesome
+
+
+1.2.3
+
+. .3 minor
+.2 .  mayor ga ngaruh ke enviroment
+1. . mayor dan ngaruh ke enviroment
