@@ -164,17 +164,26 @@ function calculateDateDifference(start, end) {
     let startDate = new Date(start)
     let endDate = new Date(end)
 
+    if (startDate > endDate) {
+        return "Start Date tidak boleh lebih lama dari End Date."
+    }
+
     let timeDifference = endDate.getTime() - startDate.getTime()
     let daysDifference = timeDifference / (1000 * 60 * 60 * 24)
 
     if (daysDifference < 30) {
-        return "Durasi: " + daysDifference + " Hari" 
-    } else if (daysDifference >= 30 && daysDifference % 30 == 0) {
+        return "Durasi: " + daysDifference + " Hari"
+    } else if (daysDifference >= 30 && daysDifference % 30 === 0) {
         return "Durasi: " + daysDifference / 30 + " Bulan"
-    } else if (daysDifference >= 30 && daysDifference % 30 != 0) {
-        return "Durasi: " + Math.floor(daysDifference / 30) + " Bulan " + (daysDifference % 30) + " Hari" 
-    } 
+    } else if (daysDifference >= 30 && daysDifference % 30 !== 0) {
+        let months = Math.floor(daysDifference / 30)
+        let days = daysDifference % 30
+        return "Durasi: " + months + " Bulan " + days + " Hari"
+    }
+
+    return "Durasi: " + daysDifference + " Hari"
 }
+
 
 renderProject()
 
