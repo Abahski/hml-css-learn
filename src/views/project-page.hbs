@@ -2,11 +2,8 @@
 
 <html>
 <head>
-	<title>Project Page</title>
+	<title>Project Page - {{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/index.css" />
-    <!-- <link rel="stylesheet" href="assets/css/nav.css" /> -->
-    <link rel="stylesheet" href="src/assets/css/project page.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -17,6 +14,10 @@
       font-size: 24px;
       margin-right: 10px;
     }
+
+    body {
+    background-color: #dce0e4 !important;
+}
 </style>
 
 <body>
@@ -51,62 +52,44 @@
 </nav>
 
 <div class="container mt-5">
-    <h1>{{id}}</h1>
-    <h1>Reza 1</h1>
+    <h1>{{data.title}}</h1>
 
-<section class="d-flex flex-wrap justify-content-around p-3">
+    <section class="d-flex flex-wrap justify-content-around p-3">
         <div class="row">
-            <div id="image-container" class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3">
                 <img src="/assets/image/background.jpg" alt="Description of the image" class="img-fluid">
             </div>
 
-        <div id="details-container" class="col-md-6 mb-3">
-            <h2 class="mb-3">Duration</h2>
-        <div class="d-flex align-items-center mb-3">
-            <i class="tech-icon fab fa-calendar"></i>
-            <p class="mb-0">17 Jan 2024 - 30 Jan 2024</p>
-        </div>
-        <div class="d-flex align-items-center mb-3">
-            <i class="tech-icon far fa-clock"></i>
-            <p class="mb-0">13 Hari</p>
-        </div>
-        <h2 class="mb-3">Technologies</h2>
-        <div class="row row-cols-2 g-3">
-            <div class="col">
-                <div class="d-flex align-items-center">
-                    <i class="tech-icon fab fa-node"></i>
-                    <p class="mb-0">NodeJS</p>
+            <div class="col-md-6 mb-3">
+                <h2 class="fs-3">Durasi</h2>
+                
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-calendar"></i>
+                    <p class="mb-0 ms-2">{{data.start_date}} - {{data.end_date}}</p>
                 </div>
-            </div>
-            <div class="col">
-                <div class="d-flex align-items-center">
-                    <i class="tech-icon fab fa-html5"></i>
-                    <p class="mb-0">HTML</p>
+                
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fa-regular fa-clock"></i>
+                    <p class="mb-0 ms-2">{{data.duration}}</p>
                 </div>
-            </div>
-            <div class="col">
-                <div class="d-flex align-items-center">
-                    <i class="tech-icon fab fa-python"></i>
-                    <p class="mb-0">Python</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-flex align-items-center">
-                    <i class="tech-icon fab fa-css3-alt"></i>
-                    <p class="mb-0">CSS</p>
+                
+                <h2 class="fs-3">Technologies</h2>
+                
+                <div class="icon-tech d-flex mt-3">
+                    {{#each data.technologies}}
+                        <i class="fa-brands {{this}} fa-2xl"></i>
+                    {{/each}}
                 </div>
             </div>
         </div>
-      </div>
-    </div>
-</section>
+    </section>
 
     <article class="article p-3">
-      <p>
-        Percobaan 1234567890
-      </p>
+        <p>{{data.description}}</p>
     </article>
 </div>
+
+
 
 </body>
 </html>

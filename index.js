@@ -1,12 +1,28 @@
 const express = require('express')
+const dbPool = require('./src/connection/index')
 const app = express()
 const port = 3000
+
+//sequealize
+const { development } = require('./src/config/config.json')
+const { Sequelize, QueryTypes } = require('Sequelize')
+const SequelizePool = new Sequelize(development)
+
+//tes database
+dbPool.connect((err) => {
+  if (err) {
+    console.log(err.message)
+  } else {
+    console.log("Database connected");
+  }
+})
 
 app.set('view engine', 'hbs')
 app.set('views', 'src/views')
 app.use('/assets', express.static('src/assets'))
 app.use(express.urlencoded({ extended: false }))
 
+// function
 function getCurrentDateTime() {
   const currentDate = new Date()
   const formattedDate = currentDate.toLocaleDateString('en-GB')
@@ -45,18 +61,18 @@ function calculateDateDifference(start, end) {
     let endDate = new Date(end)
 
     if (startDate > endDate) {
-        return "Invalid input start date"
+        return alert ("Invalid input start date")
     }
 
     let timeDifference = endDate.getTime() - startDate.getTime()
     let daysDifference = timeDifference / (1000 * 60 * 60 * 24)
 
     if (daysDifference < 30) {
-        return "Durasi: " + daysDifference + " Hari" 
+        return  daysDifference + " Hari" 
     } else if (daysDifference >= 30 && daysDifference % 30 == 0) {
-        return "Durasi: " + daysDifference / 30 + " Bulan"
+        return  daysDifference / 30 + " Bulan"
     } else if (daysDifference >= 30 && daysDifference % 30 != 0) {
-        return "Durasi: " + Math.floor(daysDifference / 30) + " Bulan " + (daysDifference % 30) + " Hari" 
+        return  Math.floor(daysDifference / 30) + " Bulan " + (daysDifference % 30) + " Hari" 
     } 
     return result
 }
@@ -73,8 +89,9 @@ app.post('/edit-project/:id', handleEditProject)
 
 const data = []
 
-function home(req, res) {
-  res.render('index')
+async function home(req, res) {
+  const projectNew = await SequelizePool.query("SELECT * FROM projects")
+  res.render('index', { data: projectNew[0] })
 }
 
 function contact(req, res) {
@@ -82,106 +99,57 @@ function contact(req, res) {
 }
 
 function my_project(req, res) {
-  res.render('my-project', { data })
+  res.render('my-project')
 }
 
-function project_page(req, res) {
+async function project_page(req, res) {
   const { id } = req.params
-
-  const dataDetail = data[id]
-
-  res.render('project-page', { data: dataDetail })
+  const dataDetail = await SequelizePool.query(
+    `SELECT * FROM projects WHERE id = ${id} `);
+    res.render('project-page', { data: dataDetail[0][0] })
 }
 
 function testimoni(req, res) {
   res.render('testimoni')
 }
 
-function handlePostProject(req, res) {
+async function handlePostProject(req, res) {
   const { title, content, 'start-date': startDate, 'end-date': endDate, tech} = req.body
-  const date = getCurrentDateTime()
-  const timePost = new Date()
-  const originalTimePost = new Date(timePost)
-  const distanceTime = getDistanceTime(originalTimePost)
+  // const timePost = new Date()
+  // const originalTimePost = new Date(timePost)
+  // const distanceTime = getDistanceTime(originalTimePost)
   const duration = calculateDateDifference(startDate, endDate);
 
-  const newProject = {
-    title,
-    content,
-    date,
-    timePost,
-    originalTimePost,
-    distanceTime,
-    duration,
-    tech: Array.isArray(tech) ? tech : [tech]
-  };
+  await SequelizePool.query(`INSERT INTO projects (title, start_date, end_date, description, technologies, "createdAt", "updatedAt", duration) VALUES ('${title}', '${startDate}', '${endDate}', '${content}', '{${tech}}', NOW(), NOW(), '${duration}')`);
 
-  data.unshift(newProject);
-
-  console.log();
-  console.log('judul', title);
-  console.log('konten', content);
-  console.log('date', date);
-  console.log(data);
-  console.log();
-
-  res.redirect('/my-project');
+  res.redirect('/#home');
 }
 
 
-function handleDeleteProject(req, res) {
+async function handleDeleteProject(req, res) {
   const { id } = req.params
-
-  data.splice(id, 1)
-  console.log('berhasil delete project id ', id)
-  res.redirect('/my-project')
+  const data = await SequelizePool.query (`DELETE FROM projects where id = '${id}' `)
+  res.redirect('/#home')
 }
 
-function editProject(req, res) {
+async function editProject(req, res) {
     const { id } = req.params;
-    const dataDetail = data[id];
+    const editData = await SequelizePool.query(`SELECT * FROM projects where id = '${id}'`);
 
-    res.render("edit-project", { data: dataDetail, id, startDate: dataDetail.startDate, endDate: dataDetail.endDate, duration: dataDetail.duration });
+    res.render("edit-project", { data: editData[0][0]});
 }
 
 
-function handleEditProject(req, res) {
-  const { id, title, content, 'start-date': startDate, 'end-date': endDate, tech} = req.body
-  const newDate = getCurrentDateTime()
-  const originalProject = data[id]
+async function handleEditProject(req, res) {
+  const { id } = req.params
+  const { title, content, 'start-date': startDate, 'end-date': endDate, tech} = req.body
+  const duration = calculateDateDifference(startDate, endDate);
 
-  if (originalProject) {
-    const { date, timePost, originalTimePost } = originalProject
-    const editTimePost = new Date()
-    const editTime = getCurrentDateTime(editTimePost)
-    const distanceTime = getDistanceTime(originalTimePost)
-    const duration = calculateDateDifference(startDate, endDate);
+  await SequelizePool.query(
+    `UPDATE projects SET title='${title}', start_date='${startDate}', end_date='${endDate}', description='${content}', technologies='{${tech}}', "updatedAt"= now(), duration='${duration}' WHERE id = ${id}`);
 
-    data[id] = {
-      title,
-      content,
-      date: originalProject.date,
-      timePost: editTimePost,
-      originalTimePost,
-      editTime,
-      distanceTime,
-      startDate,
-      endDate,
-      duration,
-      tech: Array.isArray(tech) ? tech : [tech]
-    }
-
-    console.log("edited ", id);
-    console.log(data[id]);
-  } else {
-    console.log("Project not found");
-  }
-
-  res.redirect('/my-project');
+  res.redirect('/#home')
 }
-
-
-
 
 
 app.listen(port, () => {
