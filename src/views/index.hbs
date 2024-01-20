@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link active fw-bold" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/my-project">Add Project</a>
@@ -35,17 +35,44 @@
                     <a class="nav-link" href="/testimoni">Testimonial</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="btn btn-dark d-none d-lg-inline" href="/contact">Contact Me</a>
-                    <a class="nav-link d-lg-none" href="/contact">Contact Me</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    {{#if isLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold active">Hello, {{user}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="/contact">Contact Me</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-inline">
+                        <a class="btn btn-dark" href="/contact">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
 
-    <section class="container">
+        {{#if messages.success}}
+            <div class="alert alert-success" role="alert">
+                <div class="container">
+                {{messages.success}}
+                </div>
+            </div>
+        {{/if}}
+
+    <section class="container1">
             <div class="text_side">
                 <h2> Selamat datang dan salam kenal!</h2>                  
 
@@ -86,6 +113,11 @@
     <section class="content-result-project bg-light pt-5 pb-5">
     <div class="container-fluid mt-5">
         <h2 class="text-center">My Project</h2>
+        {{#if isLogin}}
+            <div class="d-flex justify-content-end mb-3">
+              <a class="btn btn-dark btn-submit ms-5" href="/my-project">Add Project</a>
+            </div>
+        {{/if}}
         <div class="text-end mt-3 mb-5">
             </div>
             <!-- baris -->
@@ -122,6 +154,8 @@
                              <small class="text-secondary fs-6">
                                     <p> Last Edited {{ this.updatedAt }}</p>
                             </small>
+                            
+                            {{#if this.isLogin}}
                             <div class="btn-bottom d-flex justify-content-center mb-2">
                                 <a
                                   href="/edit-project/{{this.id}}"
@@ -132,6 +166,7 @@
                                   class="btn btn-dark p-0 w-50"
                                 >Delete</a>
                             </div>
+                                {{/if}}
                         </div>
                     </div>
                     <!-- card -->

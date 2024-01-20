@@ -35,18 +35,34 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/my-project">Add Project</a>
+                    <a class="nav-link active fw-bold" href="/my-project">Add Project</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/testimoni">Testimonial</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="btn btn-dark d-none d-lg-inline" href="/contact">Contact Me</a>
-                    <a class="nav-link d-lg-none" href="/contact">Contact Me</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                       {{#if isLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold active">Hello, {{user}}</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item d-none d-lg-inline">
+                        <a class="btn btn-dark" href="/contact">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

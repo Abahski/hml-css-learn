@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/my-project">Add Project</a>
+                    <a class="nav-link active fw-bold" href="/my-project">Add Project</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/testimoni">Testimonial</a>
@@ -45,15 +45,21 @@
             </ul>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
+                    {{#if isLogin}}
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Register</a>
+                        <a class="nav-link fw-bold active">Hello, {{user}}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login</a>
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-lg-none" href="/contact">Contact Me</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
+                    {{/if}}
                     <li class="nav-item d-none d-lg-inline">
                         <a class="btn btn-dark" href="/contact">Contact Me</a>
                     </li>
@@ -64,6 +70,7 @@
 </nav>
 
 <div class="container mt-5">
+    {{#if isLogin}}
     <form action="/my-project" method="POST" class="w-50 mx-auto">
         <h2 class="text-center mb-4">Add My Project</h2>
         <!-- project name -->
@@ -132,6 +139,9 @@
             <button type="submit" class="btn btn-dark">Submit</button>
         </div>
     </form>
+    {{else}}
+    <h2 class="text-center">Please, <a class="text-decoration-none text-dark fw-bold"href="/login">login</a> or <a class="text-decoration-none text-dark fw-bold" href="/register">register</a> first to acces this page.</h2>
+    {{/if}}
 </div>
 
 <script>
