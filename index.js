@@ -3,7 +3,8 @@ const dbPool = require('./src/connection/index')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const flash = require('express-flash')
-const app = express()
+const upload = require('./src/middlewares/uploadFile')
+const app = express() 
 const port = 3000
 
 //sequealize
@@ -23,6 +24,8 @@ dbPool.connect((err) => {
 //handlebaras
 app.set('view engine', 'hbs')
 app.set('views', 'src/views')
+
+app.use('/uploads', express.static('src/uploads'))
 app.use('/assets', express.static('src/assets'))
 app.use(express.urlencoded({ extended: false }))
 
@@ -81,6 +84,7 @@ function calculateDateDifference(start, end) {
     return result
 }
 
+
 // middleware session
 app.use(session({
     cookie: {
@@ -100,10 +104,10 @@ app.get('/contact', contact)
 app.get('/my-project', my_project)
 app.get('/project-page/:id', project_page)
 app.get('/testimoni', testimoni)
-app.post('/my-project', handlePostProject)
+app.post('/my-project', upload.single('image'), handlePostProject)
 app.get('/delete/:id', handleDeleteProject)
 app.get('/edit-project/:id', editProject)
-app.post('/edit-project/:id', handleEditProject)
+app.post('/edit-project/:id', upload.single('image'), handleEditProject)
 app.get('/register', formRegister)
 app.post('/register', addRegister)
 app.get('/login', formLogin)
@@ -115,18 +119,24 @@ const data = []
 
 async function home(req, res) {
   try {
-    const query = await SequelizePool.query('SELECT * FROM projects', {type: QueryTypes.SELECT})
+    let query
+    if (req.session.isLogin) {
+    const author = req.session.idUser;
+    query = await SequelizePool.query(`SELECT projects.id, projects.author, projects.title, projects.description, projects.image, projects."createdAt", projects."updatedAt", projects.technologies, projects.duration, users.name FROM projects INNER JOIN users ON projects.author = users.id WHERE author = ${author}`, { type: QueryTypes.SELECT }) 
+    }
+    else {
+      query = await SequelizePool.query(`SELECT projects.id, projects.author, projects.title, projects.description, projects.image, projects."createdAt", projects."updatedAt", projects.technologies, projects.duration, users.name FROM projects INNER JOIN users ON projects.author = users.id`, { type: QueryTypes.SELECT })
+    }
     const data = query.map(res => ({
       ...res,
-      author: 'Reza',
-      image: './src/assets/image/background.jpg',
       isLogin: req.session.isLogin,
     }))
 
     res.render('index', {
       data,
       isLogin: req.session.isLogin,
-      user: req.session.user
+      user: req.session.user,
+      idUser: req.session.idUser
     })
   }   catch (error) {
         throw error
@@ -186,9 +196,14 @@ function testimoni(req, res) {
 async function handlePostProject(req, res) {
   const { title, content, 'start-date': startDate, 'end-date': endDate, tech} = req.body
   const duration = calculateDateDifference(startDate, endDate);
+  console.log('test', req.file)
+  const image = req.file.filename;
+  console.log('gambar', image);
+  const author = req.session.idUser;
 
-  await SequelizePool.query(`INSERT INTO projects (title, start_date, end_date, description, technologies, "createdAt", "updatedAt", duration) VALUES ('${title}', '${startDate}', '${endDate}', '${content}', '{${tech}}', NOW(), NOW(), '${duration}')`);
+  await SequelizePool.query(`INSERT INTO projects (title, start_date, end_date, description, technologies, "createdAt", "updatedAt", duration, image, author) VALUES ('${title}', '${startDate}', '${endDate}', '${content}', '{${tech}}', NOW(), NOW(), '${duration}', '${image}','${author}')`);
 
+  console.log(duration)
   res.redirect('/#home');
 }
 
@@ -206,7 +221,7 @@ async function editProject(req, res) {
       res.render('edit-project', {
       data: editData[0][0],
       isLogin: req.session.isLogin,
-      user: req.session.user
+      user: req.session.idUser
     })
     } catch (error) {
       throw error
@@ -215,15 +230,23 @@ async function editProject(req, res) {
 
 
 async function handleEditProject(req, res) {
-  const { id } = req.params
-  const { title, content, 'start-date': startDate, 'end-date': endDate, tech} = req.body
-  const duration = calculateDateDifference(startDate, endDate);
+  const { id } = req.params;
+  const { title, content, 'start-date': startDate, 'end-date': endDate, tech } = req.body;
 
-  await SequelizePool.query(
-    `UPDATE projects SET title='${title}', start_date='${startDate}', end_date='${endDate}', description='${content}', technologies='{${tech}}', "updatedAt"= now(), duration='${duration}' WHERE id = ${id}`);
+  if (req.file) {
+    const image = req.file.filename;
+    const duration = calculateDateDifference(startDate, endDate);
 
-  res.redirect('/#home')
+    await SequelizePool.query(
+      `UPDATE projects SET title='${title}', start_date='${startDate}', end_date='${endDate}', description='${content}', technologies='{${tech}}', duration='${duration}', image='${image}' WHERE id = ${id}`
+    );
+    // console.log(updatedTime)
+    res.redirect('/#home');
+  } else {
+    res.status(400).send('No file uploaded');
+  }
 }
+
 
 function formRegister(req, res) {
     res.render('register')
@@ -264,7 +287,8 @@ async function isLogin(req, res) {
             } else {
                 req.session.isLogin = true
                 req.session.user = checkEmail[0].name
-                req.flash('success', 'Welcome to mobile legend');
+                req.session.idUser = checkEmail[0].id
+                req.flash('success', 'Welcome to my web!!!');
                 return res.redirect('/')
             }
         });
