@@ -4,14 +4,23 @@
 <head>
     <title>Portofolio Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets\css\home.css" />
-    <link rel="stylesheet" href="assets\css\index.css" />
-    <link rel="stylesheet" href="assets\css\icon.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+    body {
+    background-color: #dce0e4 !important;
+}
+</style>
 
 
 <body>
@@ -35,80 +44,91 @@
                     <a class="nav-link" href="/testimoni">Testimonial</a>
                 </li>
             </ul>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    {{#if isLogin}}
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold active">Hello, {{user}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                    {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    {{/if}}
-                    <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="/contact">Contact Me</a>
-                    </li>
-                    <li class="nav-item d-none d-lg-inline">
-                        <a class="btn btn-dark" href="/contact">Contact Me</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ms-auto">
+                {{#if isLogin}}
+                <li class="nav-item">
+                    <a class="nav-link fw-bold active">Hello, {{user}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                {{/if}}
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="/contact">Contact Me</a>
+                </li>
+                <li class="nav-item d-none d-lg-inline">
+                    <a class="btn btn-dark" href="/contact">Contact Me</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 
-        {{#if messages.success}}
-            <div class="alert alert-success" role="alert">
-                <div class="container">
-                {{messages.success}}
-                </div>
-            </div>
-        {{/if}}
+{{#if messages.success}}
+    <div class="alert alert-success" role="alert">
+        <div class="container">
+        {{messages.success}}
+        </div>
+    </div>
+{{/if}}
 
-    <section class="container1">
-            <div class="text_side">
-                <h2> Selamat datang dan salam kenal!</h2>                  
+<div class="container bg-white rounded-4 shadow animate__animated animate__slideInUp">
+      <div class="row mt-5 mb-5">
+        <div class="col-lg-7 mt-5 pt-lg-5 ps-lg-5 p-sm-4">
+          <h1 class="fw-bold fs-2">Selamat datang dan salam kenal</h1>
+          <p style="text-align: justify">
+            Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan menjadi Web Developer dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer.
+          </p>
+          <div class="container-btnlink mt-lg-5 mt-sm-4">
+            <a
+              href="https://api.whatsapp.com/send?phone=6281294942726&text=Halo,%20Saya%20ingin%20berkenalan%20dengan%20anda"
+              target="_blank"
+              class="btn btn-contact pt-2 pb-2 pe-4 ps-4 bg-dark text-white rounded-pill me-4"
+              type="submit"
+            >Contact</a>
 
-                <p style="text-align: justify;"> Reza Liswara, mahasiswa lulusan program studi Matematika di Universitas Islam Negeri Syarif Hidayatullah Jakarta. Saat ini berkecimpung di dunia pemrograman khususnya di bidang Data Science, Machine Learning, dan Web Developer. Awalnya hanya tertarik pada bidang Data, akan tetapi setelah lulus diberikan kesempatan merasakan menjadi Web Developer dibagian Backend. Sehingga, saat ini tertarik juga pada dunia Web Developer. </p>
+            <a
+              href="https://drive.google.com/file/d/1kwx53Tce7dOa4_HpVpYtK1jjDtCGc8U9/view?usp=sharing"
+              target="_blank"
+              class="fs-6 pe-5 text-decoration-none text-dark"
+            >Download CV Saya <img src="../assets/img/download.png" alt="" /></a>
+          </div>
 
-                <div style="display: flex; margin-top: 30px;">
-                    <div style="width: 70px; height: 30px;">
-                        <a href="https://drive.google.com/file/d/1kwx53Tce7dOa4_HpVpYtK1jjDtCGc8U9/view?usp=sharing" target="_blank">
-                            <i class="fa-regular fa-file"> CV</i>
-                        </a>    
-                    </div>
-                    <div class="contact">
-                        <p class="contact text">
-                            contact
-                        </p>
-                    </div>
-                </div>
-
-                <div style="margin: 20px auto; ">
+          <div class="mt-5">
                     <a href="https://www.instagram.com/rezaliz_?igsh=MW4xeXg1NXdkazljYQ==" target="_blank">
-                        <i class="fa-brands fa-instagram icon"></i>
+                        <i class="fa-brands fa-instagram fs-2 text-decoration-none text-dark me-3"></i>
                     </a>
                     <a href="https://github.com/Abahski" target="_blank">
-                        <i class="fa-brands fa-github icon"></i>
+                        <i class="fa-brands fa-github fs-2 text-decoration-none text-dark me-3"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/reza-liswara" target="_blank">
-                        <i class="fa-brands fa-linkedin icon"></i>
+                        <i class="fa-brands fa-linkedin fs-2 text-decoration-none text-dark me-3"></i>
                     </a>    
-                </div>
             </div>
-            <div class="image_side">
-                <img src="assets\image\Foto Reza.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
-                <h2>Reza Liswara</h2>
-                <p>Programmer Wannabe</p>
+        </div>
+
+        <div class="col-lg-5 mt-3 mb-3 p-lg-5 p-sm-4 pb-sm-5 m-auto">
+          <div class="card shadow-lg border-0 shadow">
+            <img
+              src="../assets/image/Foto Reza.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body text-center mb-2 lh-1">
+              <h4 class="card-title fw-bold fs-4">Reza Liswara</h4>
+              <small class="fs-6">Developer Wannabe</small>
             </div>
-    </section>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="content-result-project bg-light pt-5 pb-5">
     <div class="container-fluid mt-5">
@@ -175,6 +195,6 @@
             </div>
         <!-- baris -->
     </div>
-</section>
+    </section>
 </body>
 </html>

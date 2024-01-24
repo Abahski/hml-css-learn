@@ -203,7 +203,7 @@ async function handlePostProject(req, res) {
 
   await SequelizePool.query(`INSERT INTO projects (title, start_date, end_date, description, technologies, "createdAt", "updatedAt", duration, image, author) VALUES ('${title}', '${startDate}', '${endDate}', '${content}', '{${tech}}', NOW(), NOW(), '${duration}', '${image}','${author}')`);
 
-  console.log(duration)
+  console.log('durasi: ', duration)
   res.redirect('/#home');
 }
 
@@ -221,7 +221,7 @@ async function editProject(req, res) {
       res.render('edit-project', {
       data: editData[0][0],
       isLogin: req.session.isLogin,
-      user: req.session.idUser
+      user: req.session.user,
     })
     } catch (error) {
       throw error
@@ -238,7 +238,7 @@ async function handleEditProject(req, res) {
     const duration = calculateDateDifference(startDate, endDate);
 
     await SequelizePool.query(
-      `UPDATE projects SET title='${title}', start_date='${startDate}', end_date='${endDate}', description='${content}', technologies='{${tech}}', duration='${duration}', image='${image}' WHERE id = ${id}`
+      `UPDATE projects SET title='${title}', start_date='${startDate}', end_date='${endDate}', description='${content}', technologies='{${tech}}', duration='${duration}', image='${image}', "updatedAt"=NOW()  WHERE id = ${id}`
     );
     // console.log(updatedTime)
     res.redirect('/#home');
